@@ -1,3 +1,6 @@
+from produto import Produto
+
+
 class Nó_fila:
     def __init__(self, dado=None, proximo=None, anterior=None):
         self.dado = dado
@@ -44,7 +47,31 @@ class Fila:
         print("")
 
     
-        
+estoque = Fila
+
+produto1 = Produto
+produto2 = Produto
+produto3 = Produto
+produto4 = Produto
+produto5 = Produto
+produto6 = Produto
+produto7 = Produto
+produto8 = Produto
+produto9 = Produto
+produto10 = Produto
+
+
+estoque.adicionar(produto1)
+estoque.adicionar(produto2)
+estoque.adicionar(produto3)
+estoque.adicionar(produto4)
+estoque.adicionar(produto5)
+estoque.adicionar(produto6)
+estoque.adicionar(produto7)
+estoque.adicionar(produto8)
+estoque.adicionar(produto9)
+estoque.adicionar(produto10)
+
         
             
             

@@ -1,11 +1,11 @@
 class Nó_lista:
-    def __init__(self, dado):
+    def __init__(self, dado=dict):
         self.dado = dado
         self.ponteiro = None
 
 
 
-class Lista_de_comandas:
+class Lista:
     def __init__(self):
         self.inicio = None
         self.fim = None
@@ -47,3 +47,22 @@ class Lista_de_comandas:
         self.fim = None
         self.inicio = None
         self.tamanho = 0
+
+
+    
+        
+        
+            
+            
+            
+
+
+    
+        
+            
+                
+        
+
+
+
+    

@@ -1,9 +1,16 @@
+import datetime
+from lista_encadeada import Lista
+
 class Pagamento:
-    def __init__(self, pagador, comanda, forma, valor, data_pagamento, hora_pagamento):
+    def __init__(self, pagador=str, comanda=int, forma=str, valor=float):
         self.pagador = pagador
         self.comanda = comanda
         self.forma = forma
         self.valor = valor
-        self.data_pagamento = data_pagamento
-        self.hora_pagamento = hora_pagamento
-    
+        self.data_hora_pagamento = datetime.now()
+
+
+    def receber(self):
+        pagamento = Pagamento
+        Lista.adicionar(pagamento)
+          
