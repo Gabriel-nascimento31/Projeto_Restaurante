@@ -47,30 +47,30 @@ class Fila:
         print("")
 
     
-estoque = Fila
+estoque = Fila()
 
-produto1 = Produto
-produto2 = Produto
-produto3 = Produto
-produto4 = Produto
-produto5 = Produto
-produto6 = Produto
-produto7 = Produto
-produto8 = Produto
-produto9 = Produto
-produto10 = Produto
+produto1 = Produto()
+produto2 = Produto()
+produto3 = Produto()
+produto4 = Produto()
+produto5 = Produto()
+produto6 = Produto()
+produto7 = Produto()
+produto8 = Produto()
+produto9 = Produto()
+produto10 = Produto()
 
 
-estoque.adicionar(produto1)
-estoque.adicionar(produto2)
-estoque.adicionar(produto3)
-estoque.adicionar(produto4)
-estoque.adicionar(produto5)
-estoque.adicionar(produto6)
-estoque.adicionar(produto7)
-estoque.adicionar(produto8)
-estoque.adicionar(produto9)
-estoque.adicionar(produto10)
+estoque.enfileirar(produto1)
+estoque.enfileirar(produto2)
+estoque.enfileirar(produto3)
+estoque.enfileirar(produto4)
+estoque.enfileirar(produto5)
+estoque.enfileirar(produto6)
+estoque.enfileirar(produto7)
+estoque.enfileirar(produto8)
+estoque.enfileirar(produto9)
+estoque.enfileirar(produto10)
 
         
             

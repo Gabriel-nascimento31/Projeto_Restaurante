@@ -1,15 +1,15 @@
-import datetime
+from datetime import datetime
 from lista_encadeada import Lista
 
 
 
 class Item:
-    def __init__(self, nome = str, preço = float, tipo = str):
+    def __init__(self, nome = str, preco = float, tipo = str):
         self.nome = nome
-        self.preço = preço
+        self.preço = preco
         self.tipo = tipo
 
-    def printar_item_preço(self):
+    def printar_item_preco(self):
         print(f'{self.nome}: R${self.preco} ')
 
 

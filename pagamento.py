@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from lista_encadeada import Lista
 
 class Pagamento:
@@ -9,8 +9,12 @@ class Pagamento:
         self.valor = valor
         self.data_hora_pagamento = datetime.now()
 
+pagamento = Pagamento()
+lista_pagamentos = Lista()
 
-    def receber(self):
-        pagamento = Pagamento
-        Lista.adicionar(pagamento)
+
+
+
+        
+        
           
