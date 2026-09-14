@@ -37,7 +37,7 @@ class Fila:
             self.inicio.anterior = None 
         elif self.tamanho <1:
             print("A fila está vazia")
-        self.tamanho -= 1 
+        
 
     def percorrer(self):
         atual = self.inicio

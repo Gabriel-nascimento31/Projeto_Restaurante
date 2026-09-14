@@ -50,19 +50,19 @@ class Lista:
 
 
     
-        
-        
-            
-            
-            
 
+    def buscar_comanda(self, numero):
+        atual = self.inicio
+        while atual:
+            if atual.dado.número == int(numero):
+                return atual.dado
+            atual = atual.ponteiro
+        return None
 
-    
-        
-            
-                
-        
-
-
-
-    
+    def buscar_item_cardapio(self, nome_item):
+        atual = self.inicio
+        while atual:
+            if atual.dado.nome.lower() == nome_item.lower():
+                return atual.dado
+            atual = atual.ponteiro
+        return None
