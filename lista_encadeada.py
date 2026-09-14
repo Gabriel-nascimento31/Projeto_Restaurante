@@ -1,5 +1,5 @@
 class Nó_lista:
-    def __init__(self, dado=dict):
+    def __init__(self, dado):
         self.dado = dado
         self.ponteiro = None
 
@@ -24,40 +24,38 @@ class Lista:
 
     def deletar(self, dado):
         atual = self.inicio
-        anterior = self.inicio
+        anterior = None
         while atual:
             if atual.dado == dado:
-                if atual == self.inicio:
+                if anterior is None:
                     self.inicio = atual.ponteiro
                     if self.inicio is None:
                         self.fim = None
-
                 else:
                     anterior.ponteiro = atual.ponteiro
                     if atual == self.fim:
                         self.fim = anterior
-
                 self.tamanho -= 1
                 return True
             anterior = atual
             atual = atual.ponteiro
+        return False
 
-
+    
     def esvaziar_lista(self):
         self.fim = None
         self.inicio = None
         self.tamanho = 0
 
 
-    
-
     def buscar_comanda(self, numero):
         atual = self.inicio
         while atual:
-            if atual.dado.número == int(numero):
+            if atual.dado.numero == int(numero):
                 return atual.dado
             atual = atual.ponteiro
         return None
+
 
     def buscar_item_cardapio(self, nome_item):
         atual = self.inicio
@@ -66,3 +64,4 @@ class Lista:
                 return atual.dado
             atual = atual.ponteiro
         return None
+    

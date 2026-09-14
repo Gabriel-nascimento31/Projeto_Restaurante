@@ -1,28 +1,24 @@
-from lista_encadeada import Lista
-
-historico_pagamentos = Lista()
-
 def gerar_relatorios(historico_pagamentos):
-    print(" RELATÓRIO DE VENDAS E CONSUMO ")
+    print("\n" + "=" * 40)
+    print("        RELATÓRIO DE VENDAS       ")
+    print("=" * 40)
+
     if historico_pagamentos.tamanho == 0:
         print("Nenhum pagamento registrado até o momento.")
         return
 
-    total_faturado = 0.0
-    total_transacoes = 0
-
-    print("\nHistórico de Transações:")
-    print("-" * 50)
-    
+    total_acumulado = 0.0
     atual = historico_pagamentos.inicio
+    
     while atual:
-        pg = atual.dado
-        print(f"Comanda {pg.comanda}  Cliente: {pg.pagador}  Forma: {pg.forma}  Valor: R${pg.valor:.2f}")
-        total_faturado += pg.valor
-        total_transacoes += 1
+        p = atual.dado
+        print(f"Comanda {p.comanda}  Cliente: {p.pagador}  Forma: {p.forma}  Valor: R${p.valor:.2f}  Data: {p.data_hora_pagamento.strftime('%d/%m/%Y %H:%M')}")
+        total_acumulado += p.valor
         atual = atual.ponteiro
 
-    print("-" * 50)
-    print(f"Total de Transações: {total_transacoes}")
-    print(f"Faturamento Total: R${total_faturado:.2f}")
-    print("-" * 50)
+    print("-" * 40)
+    print(f"TOTAL GERAL DE VENDAS: R${total_acumulado:.2f}")
+    print("=" * 40)
+
+
+
