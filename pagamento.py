@@ -55,7 +55,7 @@ class Pagamento:
 
 
 
-pagamento = Pagamento()
+
 lista_pagamentos = Lista()
 
 

@@ -1,19 +1,7 @@
 from datetime import datetime
 from lista_encadeada import Lista
-from cardapio import cardapio
 
 comandas_ativas = Lista()
-
-
-class Item:
-    def __init__(self, nome = str, preco = float, tipo = str):
-        self.nome = nome
-        self.preço = preco
-        self.tipo = tipo
-
-    def printar_item_preco(self):
-        print(f'{self.nome}: R${self.preco} ')
-
 
 
 
@@ -25,7 +13,7 @@ class Comanda:
         self.refeições_pedidas = refeições_pedidas
         self.bebidas_pedidas = bebidas_pedidas
 
-    def calcular_total_(self):
+    def calcular_total(self):
         total = 0.0
         atual = self.refeições_pedidas.inicio
         while atual:
@@ -51,7 +39,7 @@ class Comanda:
         )
         comandas_ativas.adicionar(nova_comanda)
         print(f"Comanda {contador_comanda} criada para {cliente}!")
-        contador_comanda += 1
+        contador_comanda = 1
     
     def adicionar_itens_comanda(comandas_ativas):
         print(" ADICIONAR ITENS À COMANDA ")
@@ -112,76 +100,8 @@ class Comanda:
     
     
     
-    
-    
-    
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-    
-    
-
-       
-        
-        
-
-    
-
-
-
 lista_comandas = Lista()
 comandas_ativas = Lista()
 
 
-comanda1 = Comanda()
-comanda2 = Comanda()
-comanda3 = Comanda()
 
-lista_comandas.adicionar(comanda1)
-lista_comandas.adicionar(comanda2)
-lista_comandas.adicionar(comanda3)
-
-
-
-
-        
-        
-    
-    
-
-    
-    

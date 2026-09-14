@@ -1,8 +1,8 @@
 
 
-
+from item import Item
 from lista_encadeada import Lista
-from comanda import Comanda, Item
+from comanda import Comanda
 from estoque import Fila, estoque  
 from cardapio import cardapio    
 from pagamento import Pagamento
