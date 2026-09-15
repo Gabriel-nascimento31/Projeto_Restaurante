@@ -11,7 +11,7 @@ class Comanda:
     contador = 1
 
     def __init__(self, cliente: str):
-        self.número = Comanda.contador
+        self.numero = Comanda.contador
         self.cliente = cliente
         self.data_hora_abertura = datetime.now()
         self.refeicoes_pedidas = Lista()

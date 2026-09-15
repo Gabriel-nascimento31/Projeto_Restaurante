@@ -5,4 +5,4 @@ class Item:
         self.tipo = tipo
 
     def printar_item_preco(self):
-        print(f'{self.nome}: R${self.preco} ')
+        print(f'{self.nome}: R${self.preco:.2f} ')

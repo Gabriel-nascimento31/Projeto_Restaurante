@@ -83,8 +83,8 @@ estoque = FilaEstoque()
 
 
 hoje = date.today()
-estoque.enfileirar(Produto("macarronada", 4.0, 10.0, 50, hoje, hoje + timedelta(days=10)))
-estoque.enfileirar(Produto("arroz-feijão", 2.0, 5.0, 100, hoje, hoje + timedelta(days=30)))
-estoque.enfileirar(Produto("refrigerante", 3.0, 8.0, 40, hoje, hoje + timedelta(days=60)))
-estoque.enfileirar(Produto("suco", 2.0, 5.0, 30, hoje, hoje + timedelta(days=5)))
-estoque.enfileirar(Produto("agua com gas", 1.0, 3.0, 50, hoje, hoje + timedelta(days=90)))
+estoque.enfileirar(Produto("macarronada", 4.0, 10.0, 50, data_vencimento=date.today() + timedelta(days=5)))
+estoque.enfileirar(Produto("arroz-feijão", 2.0, 5.0, 100, data_vencimento=date.today() + timedelta(days=30)))
+estoque.enfileirar(Produto("refrigerante", 3.0, 8.0, 40, data_vencimento=date.today() + timedelta(days=10)))
+estoque.enfileirar(Produto("suco", 2.0, 5.0, 30, data_vencimento=date.today() + timedelta(days=8)))
+estoque.enfileirar(Produto("agua com gas", 1.0, 3.0, 50, data_vencimento=date.today() + timedelta(days=15)))
