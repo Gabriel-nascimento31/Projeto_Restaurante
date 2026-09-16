@@ -29,4 +29,31 @@ itens_iniciais = [
 
 for item in itens_iniciais:
     cardapio.adicionar(item)
+
+
+
+def cadastrar_item_cardapio():
+    print("\n CADASTRAR NOVO ITEM NO CARDÁPIO ")
+    nome = input("Nome do item: ").strip()
+
+    preco = float(input("Preço (R$): "))
+    tipo = input("Tipo (refeição / bebida): ").strip().lower()
     
+    novo_item = Item(nome, preco, tipo)
+    cardapio.adicionar(novo_item)
+    print(f"'{nome}' foi adicionado ao cardápio!")
+
+
+def remover_item_cardapio():
+    print("\n REMOVER ITEM DO CARDÁPIO ")
+    if cardapio.tamanho == 0:
+        print("O cardápio está vazio.")
+        return
+
+    nome = input("Digite o nome do item que deseja remover: ").strip()
+    item = cardapio.buscar_item_cardapio(nome)
+
+    if item and cardapio.deletar(item):
+        print(f"Item '{nome}' removido do cardápio!")
+    else:
+        print(f"Item '{nome}' não foi encontrado no cardápio.")

@@ -1,5 +1,5 @@
 from produto import Produto
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 
 class Nó_fila:
     def __init__(self, dado=None, proximo=None, anterior=None):
@@ -77,7 +77,31 @@ class FilaEstoque:
             atual = atual.proximo
         print("")
     
-    
+    def cadastrar_produto_estoque(estoque_fila):
+        print("\n CADASTRAR PRODUTO NO ESTOQUE ")
+        nome = input("Nome do produto: ").strip()
+        
+        preco_compra = float(input("Preço de compra (R$): "))
+        preco_venda = float(input("Preço de venda (R$): "))
+        quantidade = float(input("Quantidade em estoque: "))
+        
+        data_venc_str = input("Data de vencimento (DD/MM/AAAA): ").strip()
+        
+        data_vencimento = datetime.strptime(data_venc_str, "%d/%m/%Y").date()
+        
+        novo_produto = Produto(
+            nome=nome,
+            preco_compra=preco_compra,
+            preco_venda=preco_venda,
+            quantidade=quantidade,
+            data_compra=date.today(),
+            data_vencimento=data_vencimento
+        )
+
+        estoque_fila.enfileirar(novo_produto)
+        print(f"Produto '{nome}' adicionado ao estoque!")
+
+
 
 estoque = FilaEstoque()
 
