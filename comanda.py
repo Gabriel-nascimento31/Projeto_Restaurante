@@ -13,7 +13,7 @@ def carregar_clientes_cadastrados():
     
       
 
-  class Comanda:
+class Comanda:
     contador = 1
     def __init__(self, cliente: str):
         self.numero = Comanda.contador
