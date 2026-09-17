@@ -1,17 +1,23 @@
+import os
+import pickle
 from datetime import datetime
 from lista_encadeada import Lista
 from cardapio import cardapio
 
+def carregar_clientes_cadastrados():
+  caminho_arquivo = "dados_lista.bin"
+  if os.path.exists(caminho_arquivo):
+    with open(caminho_arquivo, "rb") as f:
+        lista_clientes = pickle.load(f)
+        return lista_clientes
+    
+      
 
-
-
-
-
-class Comanda:
+  class Comanda:
     contador = 1
-
     def __init__(self, cliente: str):
         self.numero = Comanda.contador
+        Comanda.contador += 1
         self.cliente = cliente
         self.data_hora_abertura = datetime.now()
         self.refeicoes_pedidas = Lista()
@@ -34,17 +40,39 @@ class Comanda:
 
     @staticmethod
     def abrir_comanda(comandas_ativas):
-        
         print("\n ABRIR COMANDA ")
-        cliente = input("Nome do cliente: ").strip()
-        if not cliente:
-            print("Nome inválido!")
-            return
+        clientes_salvos = carregar_clientes_cadastrados()
+
+        cliente = ''
+        if clientes_salvos and clientes_salvos.tamanho > 0:
+            print('1 - Atender cliente da lista cadastrada ')
+            print('2 - Atender novo cliente')
+            opcao = input('Opção (1-2): ').strip()
+
+            if opcao == '1':
+                print('\n Clientes já cadastrados ')
+                atual = clientes_salvos.inicio
+                indice = 1
+                while atual and indice <= 10:
+                    print(f'{indice}. {atual.dado}')
+                    atual = atual.ponteiro
+                    indice += 1
+                escolha = int(input('\n Digite o número do cliente: '))
+                atual = clientes_salvos.inicio
+                for c in range(escolha - 1):
+                    if atual:
+                        atual = atual.ponteiro
+                if atual:
+                    cliente = atual.dado
+                else:
+                    print('Cliente não encontrado! ')
+
+            elif opcao == '2':
+                cliente = input('Digite o nome do cliente: ').strip()
+            
 
         nova_comanda = Comanda(cliente=cliente)
             
-            
-        
         comandas_ativas.adicionar(nova_comanda)
         print(f"Comanda {nova_comanda.numero} criada com sucesso para {cliente}!")
         
@@ -67,7 +95,7 @@ class Comanda:
             print(f"Comanda {num_input} não encontrada!")
             return
 
-        print(f"Comanda #{comanda.numero} | Cliente: {comanda.cliente}")
+        print(f"Comanda {comanda.numero} | Cliente: {comanda.cliente}")
         print("--- CARDÁPIO DISPONÍVEL ---")
         atual = cardapio.inicio
         while atual:
@@ -95,7 +123,7 @@ class Comanda:
             print("Nenhuma comanda aberta.")
             return
 
-        num_input = input("Informe o número da comanda: ").strip()
+        num_input = input("Digite o número da comanda: ").strip()
         if not num_input.isdigit():
             print("Número inválido!")
             return
@@ -126,7 +154,7 @@ class Comanda:
             print("Não há comandas abertas para encerrar.")
             return
 
-        num_input = input("Informe o número da comanda para encerrar: ").strip()
+        num_input = input("Digite o número da comanda para encerrar: ").strip()
         if not num_input.isdigit():
             print("Número de comanda inválido!")
             return
@@ -137,4 +165,4 @@ class Comanda:
             return
 
         comandas_ativas.deletar(comanda)
-        print(f"Comanda {comanda.numero} do cliente '{comanda.cliente}' foi encerrada com sucesso!")
+        print(f"Comanda {comanda.numero} do cliente '{comanda.cliente}' foi encerrada!")

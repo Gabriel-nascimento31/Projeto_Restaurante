@@ -7,8 +7,9 @@ cardapio = Lista()
     
 itens_iniciais = [
     Item('macarronada', 10.00, 'refeição'),
-    Item('arroz-feijão', 5.00, 'refeição'),
-    Item('lazanha', 20.00, 'refeição'),
+    Item('arroz', 5.00, 'refeição'),
+    Item('feijão', 10.00, 'refeição'),
+    Item('lazanha', 70.00, 'refeição'),
     Item('nhoque', 15.00, 'refeição'),
     Item('filé de frango', 12.00, 'refeição'),
     Item('bife frito', 25.00, 'refeição'),

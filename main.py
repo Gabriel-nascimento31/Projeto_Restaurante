@@ -1,9 +1,9 @@
 from lista_encadeada import Lista
 from comanda import Comanda
-from estoque import estoque
+from estoque import estoque, FilaEstoque
 from pagamento import Pagamento
 from relatorios import gerar_relatorios
-from cardapio import cadastrar_item_cardapio, remover_item_cardapio
+from cardapio import cardapio, cadastrar_item_cardapio, remover_item_cardapio
 
 comandas_ativas = Lista()
 historico_pagamentos = Lista()
@@ -18,14 +18,12 @@ while True:
     print("4 - Adicionar itens ao cardápio")
     print("5 - Remover itens do cardápio") 
     print("6 - Ver estoque / Vencimentos")
-    print("7 - Adicionar produtos ao estoque ")
-    print("8 - Receber pagamento e Baixar estoque")
-    print("9 - Encerrar comanda manualmente")
-    print("10 - Relatório de vendas")
-    print("11 - Sair do sistema")
+    print("7 - Receber pagamento, encerrar comanda e Baixar estoque")
+    print("8 - Relatório de vendas")
+    print("9 - Sair do sistema")
     print("=" * 35)
 
-    opcao = input("Escolha uma opção (1-11): ").strip()
+    opcao = input("Escolha uma opção (1-9): ").strip()
 
     if opcao == "1":
         Comanda.abrir_comanda(comandas_ativas)
@@ -46,21 +44,15 @@ while True:
         estoque.percorrer()
 
     elif opcao == '7':
-        cadastrar_produto_estoque(estoque)
+        Pagamento.receber_pagamento(comandas_ativas, historico_pagamentos)
 
     elif opcao == '8':
-        Pagamento.receber_pagamento(comandas_ativas, historico_pagamentos)
+        gerar_relatorios(historico_pagamentos)
         
     elif opcao == '9':
-        Comanda.encerrar_comanda(comandas_ativas)
-
-    elif opcao == '10':
-        gerar_relatorios(historico_pagamentos)
-
-    elif opcao == '11':
         print('Encerrando o sistema! ')
         break
 
     else:
-        print('Opção inválida! Digite um número de 1 a 11.')
+        print('Opção inválida! Digite um número de 1 a 9.')
 

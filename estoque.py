@@ -77,29 +77,7 @@ class FilaEstoque:
             atual = atual.proximo
         print("")
     
-    def cadastrar_produto_estoque(estoque_fila):
-        print("\n CADASTRAR PRODUTO NO ESTOQUE ")
-        nome = input("Nome do produto: ").strip()
-        
-        preco_compra = float(input("Preço de compra (R$): "))
-        preco_venda = float(input("Preço de venda (R$): "))
-        quantidade = float(input("Quantidade em estoque: "))
-        
-        data_venc_str = input("Data de vencimento (DD/MM/AAAA): ").strip()
-        
-        data_vencimento = datetime.strptime(data_venc_str, "%d/%m/%Y").date()
-        
-        novo_produto = Produto(
-            nome=nome,
-            preco_compra=preco_compra,
-            preco_venda=preco_venda,
-            quantidade=quantidade,
-            data_compra=date.today(),
-            data_vencimento=data_vencimento
-        )
-
-        estoque_fila.enfileirar(novo_produto)
-        print(f"Produto '{nome}' adicionado ao estoque!")
+    
 
 
 
@@ -108,7 +86,15 @@ estoque = FilaEstoque()
 
 hoje = date.today()
 estoque.enfileirar(Produto("macarronada", 4.0, 10.0, 50, data_vencimento=date.today() + timedelta(days=5)))
-estoque.enfileirar(Produto("arroz-feijão", 2.0, 5.0, 100, data_vencimento=date.today() + timedelta(days=30)))
-estoque.enfileirar(Produto("refrigerante", 3.0, 8.0, 40, data_vencimento=date.today() + timedelta(days=10)))
-estoque.enfileirar(Produto("suco", 2.0, 5.0, 30, data_vencimento=date.today() + timedelta(days=8)))
-estoque.enfileirar(Produto("agua com gas", 1.0, 3.0, 50, data_vencimento=date.today() + timedelta(days=15)))
+estoque.enfileirar(Produto("arroz", 2.0, 5.0, 20, data_vencimento=date.today() + timedelta(days=30)))
+estoque.enfileirar(Produto("feijão", 12.0, 18.0, 30, data_vencimento=date.today() + timedelta(days=5)))
+estoque.enfileirar(Produto("refrigerante", 3.0, 8.0, 40, data_vencimento=date.today() + timedelta(days=200)))
+estoque.enfileirar(Produto("suco", 2.0, 5.0, 30, data_vencimento=date.today() + timedelta(days=90)))
+estoque.enfileirar(Produto("agua com gas", 1.0, 3.0, 50, data_vencimento=date.today() + timedelta(days=150)))
+estoque.enfileirar(Produto("lazanha", 50.0, 70.0, 8, data_vencimento=date.today() + timedelta(days=5)))
+estoque.enfileirar(Produto("nhoque", 30.0, 40.0, 10, data_vencimento=date.today() + timedelta(days=3)))
+estoque.enfileirar(Produto("frango assado", 35.0, 80.0, 5, data_vencimento=date.today() + timedelta(days=2)))
+estoque.enfileirar(Produto("almondenga", 10.0, 18.0, 30, data_vencimento=date.today() + timedelta(days=5)))
+estoque.enfileirar(Produto("hamburguer", 25.0, 35.0, 20, data_vencimento=date.today() + timedelta(days=2)))
+estoque.enfileirar(Produto("bife frito", 65.0, 70.0, 50, data_vencimento=date.today() + timedelta(days=3)))
+estoque.enfileirar(Produto("filé de frango", 20.0, 30.0, 100, data_vencimento=date.today() + timedelta(days=1)))

@@ -60,7 +60,7 @@ class Pagamento:
         historico_pagamentos.adicionar(novo_pagamento)
 
         print(f"\nPagamento de R${total:.2f} registrado com sucesso via {forma}!")
-        print("Baixa no estoque realizada.")
+        
         
         
         comandas_ativas.deletar(comanda)
